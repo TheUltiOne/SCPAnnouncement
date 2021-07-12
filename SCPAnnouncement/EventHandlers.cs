@@ -28,7 +28,7 @@ namespace SCPAnnouncement
             switch (scps.Count())
             {
                 case 0:
-                    Cassie.DelayedMessage(SCPAnnouncement.Instance.Config.NoSCPs, SCPAnnouncement.Instance.Config.CassieDelay, false, true);
+                    Cassie.Message(SCPAnnouncement.Instance.Config.NoSCPs, false, true);
                     return;
 
                 case 1:
