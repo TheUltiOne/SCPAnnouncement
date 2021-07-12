@@ -10,7 +10,7 @@ namespace SCPAnnouncement
     {
         public void OnRoundStarted()
         {
-            MEC.Timing.CallDelayed(0.5f, MakeAnnouncement);
+            MEC.Timing.CallDelayed(SCPAnnouncement.Instance.Config.CassieDelay, MakeAnnouncement);
         }
 
         public void MakeAnnouncement()
@@ -18,7 +18,7 @@ namespace SCPAnnouncement
             string text = "";
             string announcement = SCPAnnouncement.Instance.Config.SCPAnnouncementCassie;
 
-            var scps = Player.List.Where(x => x.Side == Side.Scp);
+            var scps = Player.Get(Side.Scp);
 
             foreach (Player scp in scps)
             {
@@ -39,7 +39,7 @@ namespace SCPAnnouncement
             announcement.Replace("%scpcount", scps.Count().ToString());
             announcement.Replace("%scpsubjects", text);
 
-            Cassie.DelayedMessage(announcement, SCPAnnouncement.Instance.Config.CassieDelay, false, true);
+            Cassie.Message(announcement, false, true);
         }
     }
 }

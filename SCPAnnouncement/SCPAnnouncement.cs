@@ -11,15 +11,13 @@ namespace SCPAnnouncement
     {
         public override string Name { get; } = "SCPAnnouncement";
         public override string Author { get; } = "TheUltiOne";
-        public override Version Version { get; } = new Version(1, 0, 0);
+        public override Version Version { get; } = new Version(1, 0, 1);
         public override Version RequiredExiledVersion { get; } = new Version(2, 11, 0);
 
-        private static SCPAnnouncement Singleton = new SCPAnnouncement();
-
-        public override PluginPriority Priority { get; } = PluginPriority.Medium;
+        public override PluginPriority Priority { get; } = PluginPriority.Low;
         private EventHandlers events;
 
-        public static SCPAnnouncement Instance => Singleton;
+        public static SCPAnnouncement Instance;
 
         public override void OnEnabled()
         {
@@ -31,14 +29,10 @@ namespace SCPAnnouncement
             UnregisterEvents();
         }
 
-        public override void OnReloaded()
-        {
-            UnregisterEvents();
-            RegisterEvents();
-        }
-
         public void RegisterEvents()
         {
+            Instance = this;
+
             events = new EventHandlers();
             Server.RoundStarted += events.OnRoundStarted;
         }
@@ -47,6 +41,8 @@ namespace SCPAnnouncement
         {
             Server.RoundStarted -= events.OnRoundStarted;
             events = null;
+
+            Instance = null;
         }
     }
 }

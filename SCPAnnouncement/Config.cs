@@ -18,7 +18,7 @@ namespace SCPAnnouncement
         [Description("Sets the Cassie announcement when there is only 1 SCP")]
         public string SCPAnnouncementCassieSingular { get; set; } = "ATTENTION ALL PERSONNEL DETECTED %scpcount SCPSUBJECT %scpsubjects";
 
-        [Description("Sets the delay until the announcement (0.5 seconds will be added, for the plugin to function correctly)")]
+        [Description("Sets the delay until the announcement (this should generally be over 1s)")]
         public ushort CassieDelay { get; set; } = 3;
 
         [Description("Sets how cassie pronounces each SCP")]
