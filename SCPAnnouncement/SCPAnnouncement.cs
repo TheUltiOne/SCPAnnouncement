@@ -11,21 +11,22 @@ namespace SCPAnnouncement
     {
         public override string Name { get; } = "SCPAnnouncement";
         public override string Author { get; } = "TheUltiOne";
-        public override Version Version { get; } = new Version(1, 0, 1);
+        public override Version Version { get; } = new Version(1, 1, 0);
         public override Version RequiredExiledVersion { get; } = new Version(2, 11, 0);
 
-        public override PluginPriority Priority { get; } = PluginPriority.Low;
         private EventHandlers events;
 
         public static SCPAnnouncement Instance;
 
         public override void OnEnabled()
         {
+            base.OnEnabled();
             RegisterEvents();
         }
 
         public override void OnDisabled()
         {
+            base.OnDisabled();
             UnregisterEvents();
         }
 
@@ -35,6 +36,8 @@ namespace SCPAnnouncement
 
             events = new EventHandlers();
             Server.RoundStarted += events.OnRoundStarted;
+
+            EventHandlers.Pronounciations = EventHandlers.ParsePronounciations(Instance.Config.Pronounciations); // Should find a way to call this when le configs are reloaded
         }
 
         public void UnregisterEvents()

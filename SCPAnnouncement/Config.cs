@@ -25,6 +25,7 @@ namespace SCPAnnouncement
         public Dictionary<RoleType, string> Pronounciations { get; set; } = new Dictionary<RoleType, string>
         {
             { RoleType.Scp049, "SCP 0 4 9"},
+            { RoleType.Scp0492, "SCP 0 4 9 2" },
             { RoleType.Scp079, "SCP 0 7 9" },
             { RoleType.Scp096, "SCP 0 9 6" },
             { RoleType.Scp106, "SCP 1 0 6" },
