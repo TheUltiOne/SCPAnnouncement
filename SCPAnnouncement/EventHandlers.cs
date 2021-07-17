@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Exiled.API.Features;
+using Exiled.Events.EventArgs;
 using Exiled.API.Enums;
 
 namespace SCPAnnouncement
@@ -60,7 +61,7 @@ namespace SCPAnnouncement
 
         public void MakeAnnouncement()
         {
-            string text = "";
+            string text = string.Empty;
             string announcement = SCPAnnouncement.Instance.Config.SCPAnnouncementCassie;
 
             var scps = Player.Get(Side.Scp);
