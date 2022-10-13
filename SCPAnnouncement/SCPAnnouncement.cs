@@ -11,8 +11,8 @@ namespace SCPAnnouncement
     {
         public override string Name { get; } = "SCPAnnouncement";
         public override string Author { get; } = "TheUltiOne";
-        public override Version Version { get; } = new Version(1, 1, 0);
-        public override Version RequiredExiledVersion { get; } = new Version(2, 11, 0);
+        public override Version Version { get; } = new Version(2, 0, 0);
+        public override Version RequiredExiledVersion { get; } = new Version(5, 3, 0);
 
         private EventHandlers events;
 
